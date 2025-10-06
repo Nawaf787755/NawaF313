@@ -1,0 +1,65 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 25px;
+  background-color: #f8f8f8;
+}
+
+/* Main title */
+h1 {
+  text-align: center;
+  color: darkblue;
+  background-color: #cce0ff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Question titles */
+h2 {
+  padding: 8px;
+  border-radius: 5px;
+  color: #000;
+}
+
+/* Different colors for each question title */
+h2:nth-of-type(1) { background-color: #fff2cc; } /* yellow */
+h2:nth-of-type(2) { background-color: #d9ead3; } /* green */
+h2:nth-of-type(3) { background-color: #f4cccc; } /* red */
+
+/* General table settings */
+table {
+  border-collapse: collapse;
+  margin-bottom: 25px;
+  width: 80%;
+}
+
+/* Table cell styles */
+td, th {
+  padding: 8px;
+  text-align: center;
+}
+
+/* Question 1 table */
+#table1 th {
+  background-color: #e6f0ff;
+}
+#table1 td {
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Question 2 table */
+#table2 {
+  width: 420px;
+}
+#table2 th {
+  background-color: #d9e1f2;
+}
+
+/* Question 3 table */
+#table3 td:nth-child(1) { background-color: #ffcccc; }
+#table3 td:nth-child(2) { background-color: #ccffcc; }
+#table3 td:nth-child(3) { background-color: #ccccff; }
+#table3 td:nth-child(4) { background-color: #ffffcc; }
+#table3 {
+  width: 60%;
+}
