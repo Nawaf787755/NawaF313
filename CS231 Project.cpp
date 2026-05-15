@@ -2,16 +2,13 @@
 using namespace std;
 
 // Passenger
-
 class Passenger{
-
 private:
 int id;
 string name;
 string passport;
 
 public:
-
 void setID(int x){
 id = x;
 }
@@ -38,30 +35,25 @@ return passport;
 };
 
 struct PassengerNode{
-
 Passenger data;
 PassengerNode* next;
 };
 
 class PassengerList{
-
 public:
-
 PassengerNode* head;
 PassengerList(){
 head = NULL;
 }
 
 void insert(){
-
 PassengerNode* n = new PassengerNode;
+
 int id;
 string name;
 string passport;
-
 cout << "\nEnter Passenger ID: ";
 cin >> id;
-
 cout << "Enter Passenger Name: ";
 cin >> name;
 
@@ -71,22 +63,18 @@ cin >> passport;
 n->data.setID(id);
 n->data.setName(name);
 n->data.setPassport(passport);
-
 n->next = head;
 head = n;
-
 cout << "\nAdded Successfully\n";
 }
 
 void display(){
 PassengerNode* t = head;
-
 cout << "\n============================\n";
 cout << "ID\tName\tPassport\n";
 cout << "============================\n";
 
 while(t != NULL){
-
 cout << t->data.getID() << "\t";
 cout << t->data.getName() << "\t";
 cout << t->data.getPassport() << endl;
@@ -96,7 +84,6 @@ t = t->next;
 }
 
 void find(){
-
 int id;
 cout << "\nEnter ID to find: ";
 cin >> id;
@@ -106,10 +93,9 @@ PassengerNode* t = head;
 while(t != NULL){
 
 if(t->data.getID() == id){
-
 cout << "\nPassenger Found\n";
-cout << "Name: ";
-cout << t->data.getName() << endl;
+cout << "Name: " << t->data.getName() << endl;
+cout << "Passport: " << t->data.getPassport() << endl;
 
 return;
 }
@@ -121,11 +107,10 @@ cout << "\nPassenger Not Found\n";
 }
 
 void deleteNode(){
-
 int id;
-
 cout << "\nEnter ID to delete: ";
 cin >> id;
+
 PassengerNode* t = head;
 PassengerNode* prev = NULL;
 
@@ -133,15 +118,12 @@ while(t != NULL){
 
 if(t->data.getID() == id){
 
-if(prev == NULL){
+if(prev == NULL)
 head = t->next;
-}
-else{
+else
 prev->next = t->next;
-}
 
 delete t;
-
 cout << "\nDeleted Successfully\n";
 return;
 }
@@ -166,7 +148,6 @@ while(t != NULL){
 if(t->data.getID() == id){
 
 string name;
-
 cout << "Enter New Name: ";
 cin >> name;
 
@@ -178,17 +159,15 @@ return;
 
 t = t->next;
 }
+
 cout << "\nPassenger Not Found\n";
 }
 };
-
 // Stack
+
 class PassengerStack{
-
 public:
-
 PassengerNode* top;
-
 PassengerStack(){
 top = NULL;
 }
@@ -196,15 +175,14 @@ top = NULL;
 void push(Passenger p){
 
 PassengerNode* n = new PassengerNode;
+
 n->data = p;
 n->next = top;
-
 top = n;
 }
 
 void display(){
 PassengerNode* t = top;
-
 cout << "\n===== STACK DATA =====\n";
 
 while(t != NULL){
@@ -217,13 +195,11 @@ t = t->next;
 };
 
 // Queue
+
 class PassengerQueue{
-
 public:
-
 PassengerNode* front;
 PassengerNode* rear;
-
 PassengerQueue(){
 
 front = NULL;
@@ -233,7 +209,6 @@ rear = NULL;
 void enqueue(Passenger p){
 
 PassengerNode* n = new PassengerNode;
-
 n->data = p;
 n->next = NULL;
 
@@ -249,13 +224,11 @@ rear = n;
 }
 
 void display(){
-
 PassengerNode* t = front;
 
 cout << "\n===== QUEUE DATA =====\n";
 
 while(t != NULL){
-
 cout << t->data.getID() << "\t";
 cout << t->data.getName() << endl;
 
@@ -269,14 +242,12 @@ t = t->next;
 class Flight{
 
 private:
-
 int id;
 string destination;
 string gate;
 string departureTime;
 
 public:
-
 void setID(int x){
 id = x;
 }
@@ -318,9 +289,7 @@ FlightNode* next;
 class FlightList{
 
 public:
-
 FlightNode* head;
-
 FlightList(){
 head = NULL;
 }
@@ -328,7 +297,6 @@ head = NULL;
 void insert(){
 
 FlightNode* n = new FlightNode;
-
 int id;
 string destination;
 string gate;
@@ -359,13 +327,11 @@ cout << "\nAdded Successfully\n";
 
 void display(){
 FlightNode* t = head;
-
 cout << "\n========================================\n";
 cout << "ID\tDestination\tGate\tTime\n";
 cout << "========================================\n";
 
 while(t != NULL){
-
 cout << t->data.getID() << "\t";
 cout << t->data.getDestination() << "\t";
 cout << t->data.getGate() << "\t";
@@ -376,9 +342,7 @@ t = t->next;
 }
 
 void find(){
-
 int id;
-
 cout << "\nEnter Flight ID: ";
 cin >> id;
 
@@ -387,31 +351,22 @@ FlightNode* t = head;
 while(t != NULL){
 
 if(t->data.getID() == id){
-
 cout << "\nFlight Found\n";
 
-cout << "Destination: ";
-cout << t->data.getDestination() << endl;
-
-cout << "Gate: ";
-cout << t->data.getGate() << endl;
-
-cout << "Departure Time: ";
-cout << t->data.getDepartureTime() << endl;
+cout << "Destination: " << t->data.getDestination() << endl;
+cout << "Gate: " << t->data.getGate() << endl;
+cout << "Departure Time: " << t->data.getDepartureTime() << endl;
 
 return;
 }
 
 t = t->next;
 }
-
 cout << "\nFlight Not Found\n";
 }
 
 void deleteNode(){
-
 int id;
-
 cout << "\nEnter Flight ID to delete: ";
 cin >> id;
 
@@ -421,16 +376,12 @@ FlightNode* prev = NULL;
 while(t != NULL){
 
 if(t->data.getID() == id){
-
-if(prev == NULL){
+if(prev == NULL)
 head = t->next;
-}
-else{
+else
 prev->next = t->next;
-}
 
 delete t;
-
 cout << "\nDeleted Successfully\n";
 return;
 }
@@ -443,9 +394,7 @@ cout << "\nFlight Not Found\n";
 }
 
 void modify(){
-
 int id;
-
 cout << "\nEnter Flight ID to modify: ";
 cin >> id;
 
@@ -456,7 +405,6 @@ while(t != NULL){
 if(t->data.getID() == id){
 
 string destination;
-
 cout << "Enter New Destination: ";
 cin >> destination;
 
@@ -468,24 +416,19 @@ return;
 
 t = t->next;
 }
-
 cout << "\nFlight Not Found\n";
 }
 };
-
 // Ticket
 
 class Ticket{
-
 private:
-
 int ticketID;
 int passengerID;
 int flightID;
 string officeName;
 
 public:
-
 void setTicketID(int x){
 ticketID = x;
 }
@@ -505,7 +448,6 @@ officeName = x;
 int getTicketID(){
 return ticketID;
 }
-
 int getPassengerID(){
 return passengerID;
 }
@@ -513,7 +455,6 @@ return passengerID;
 int getFlightID(){
 return flightID;
 }
-
 string getOfficeName(){
 return officeName;
 }
@@ -528,15 +469,12 @@ TicketNode* next;
 class TicketList{
 
 public:
-
 TicketNode* head;
-
 TicketList(){
 head = NULL;
 }
 
 void insert(){
-
 TicketNode* n = new TicketNode;
 
 int id;
@@ -568,7 +506,6 @@ cout << "\nAdded Successfully\n";
 }
 
 void display(){
-
 TicketNode* t = head;
 
 cout << "\n====================================================\n";
@@ -577,13 +514,96 @@ cout << "====================================================\n";
 
 while(t != NULL){
 
-cout << t->data.getTicketID() << "\t";
-cout << t->data.getPassengerID() << "\t\t";
-cout << t->data.getFlightID() << "\t";
-cout << t->data.getOfficeName() << endl;
+cout << t->data.getTicketID() << "\t"
+     << t->data.getPassengerID() << "\t\t"
+     << t->data.getFlightID() << "\t"
+     << t->data.getOfficeName() << endl;
 
 t = t->next;
 }
+}
+
+void find(){
+int id;
+
+cout << "\nEnter Ticket ID: ";
+cin >> id;
+
+TicketNode* t = head;
+
+while(t != NULL){
+
+if(t->data.getTicketID() == id){
+
+cout << "\nTicket Found\n";
+cout << "Passenger ID: " << t->data.getPassengerID() << endl;
+cout << "Flight ID: " << t->data.getFlightID() << endl;
+cout << "Office: " << t->data.getOfficeName() << endl;
+
+return;
+}
+
+t = t->next;
+}
+
+cout << "\nTicket Not Found\n";
+}
+
+void deleteNode(){
+int id;
+cout << "\nEnter Ticket ID to delete: ";
+cin >> id;
+
+TicketNode* t = head;
+TicketNode* prev = NULL;
+
+while(t != NULL){
+
+if(t->data.getTicketID() == id){
+
+if(prev == NULL)
+head = t->next;
+else
+prev->next = t->next;
+
+delete t;
+cout << "\nDeleted Successfully\n";
+return;
+}
+
+prev = t;
+t = t->next;
+}
+
+cout << "\nTicket Not Found\n";
+}
+
+void modify(){
+
+int id;
+cout << "\nEnter Ticket ID to modify: ";
+cin >> id;
+
+TicketNode* t = head;
+while(t != NULL){
+
+if(t->data.getTicketID() == id){
+
+string office;
+
+cout << "Enter New Office Name: ";
+cin >> office;
+
+t->data.setOfficeName(office);
+
+cout << "\nUpdated Successfully\n";
+return;
+}
+
+t = t->next;
+}
+
+cout << "\nTicket Not Found\n";
 }
 };
 // Office
@@ -591,13 +611,11 @@ t = t->next;
 class Office{
 
 private:
-
 int id;
 string name;
 string location;
 
 public:
-
 void setID(int x){
 id = x;
 }
@@ -624,7 +642,6 @@ return location;
 };
 
 struct OfficeNode{
-
 Office data;
 OfficeNode* next;
 };
@@ -634,7 +651,6 @@ class OfficeList{
 public:
 
 OfficeNode* head;
-
 OfficeList(){
 head = NULL;
 }
@@ -642,7 +658,6 @@ head = NULL;
 void insert(){
 
 OfficeNode* n = new OfficeNode;
-
 int id;
 string name;
 string location;
@@ -669,7 +684,6 @@ cout << "\nAdded Successfully\n";
 void display(){
 
 OfficeNode* t = head;
-
 cout << "\n========================================\n";
 cout << "ID\tName\tLocation\n";
 cout << "========================================\n";
@@ -683,10 +697,92 @@ cout << t->data.getLocation() << endl;
 t = t->next;
 }
 }
+
+void find(){
+
+int id;
+cout << "\nEnter Office ID: ";
+cin >> id;
+
+OfficeNode* t = head;
+
+while(t != NULL){
+
+if(t->data.getID() == id){
+
+cout << "\nOffice Found\n";
+cout << "Name: " << t->data.getName() << endl;
+cout << "Location: " << t->data.getLocation() << endl;
+
+return;
+}
+
+t = t->next;
+}
+
+cout << "\nOffice Not Found\n";
+}
+
+void deleteNode(){
+
+int id;
+cout << "\nEnter Office ID to delete: ";
+cin >> id;
+
+OfficeNode* t = head;
+OfficeNode* prev = NULL;
+
+while(t != NULL){
+
+if(t->data.getID() == id){
+
+if(prev == NULL)
+head = t->next;
+else
+prev->next = t->next;
+
+delete t;
+cout << "\nDeleted Successfully\n";
+return;
+}
+
+prev = t;
+t = t->next;
+}
+
+cout << "\nOffice Not Found\n";
+}
+
+void modify(){
+
+int id;
+
+cout << "\nEnter Office ID to modify: ";
+cin >> id;
+
+OfficeNode* t = head;
+
+while(t != NULL){
+
+if(t->data.getID() == id){
+
+string location;
+
+cout << "Enter New Location: ";
+cin >> location;
+
+t->data.setLocation(location);
+
+cout << "\nUpdated Successfully\n";
+return;
+}
+
+t = t->next;
+}
+
+cout << "\nOffice Not Found\n";
+}
 };
-
-// Main
-
 int main(){
 
 PassengerList pList;
@@ -710,14 +806,12 @@ cout << "2 Flight\n";
 cout << "3 Ticket\n";
 cout << "4 Office\n";
 cout << "5 Exit\n";
-
 cout << "Enter Choice: ";
 cin >> ch;
 
 // Passenger
 
 if(ch == 1){
-
 int op;
 
 do{
@@ -729,14 +823,14 @@ cout << "2 Display\n";
 cout << "3 Delete\n";
 cout << "4 Find\n";
 cout << "5 Modify\n";
-cout << "6 Display\n";
+cout << "6 Display Stack & Queue\n";
 cout << "7 Back\n";
-
 cout << "Enter Choice: ";
 cin >> op;
 
 if(op == 1){
 pList.insert();
+
 Passenger p;
 
 p.setID(1);
@@ -745,7 +839,6 @@ p.setPassport("P1");
 
 pStack.push(p);
 pQueue.enqueue(p);
-
 }
 
 else if(op == 2){
@@ -765,16 +858,17 @@ pList.modify();
 }
 
 else if(op == 6){
+
 pStack.display();
 pQueue.display();
 }
 
 }while(op != 7);
 }
+
 // Flight
 
 else if(ch == 2){
-
 int op;
 
 do{
@@ -787,22 +881,25 @@ cout << "3 Delete\n";
 cout << "4 Find\n";
 cout << "5 Modify\n";
 cout << "6 Back\n";
-
 cout << "Enter Choice: ";
 cin >> op;
 
 if(op == 1){
 fList.insert();
 }
+
 else if(op == 2){
 fList.display();
 }
+
 else if(op == 3){
 fList.deleteNode();
 }
+
 else if(op == 4){
 fList.find();
 }
+
 else if(op == 5){
 fList.modify();
 }
@@ -822,8 +919,10 @@ cout << "\n----- Ticket Menu -----\n";
 
 cout << "1 Insert\n";
 cout << "2 Display\n";
-cout << "3 Back\n";
-
+cout << "3 Delete\n";
+cout << "4 Find\n";
+cout << "5 Modify\n";
+cout << "6 Back\n";
 cout << "Enter Choice: ";
 cin >> op;
 
@@ -835,34 +934,61 @@ else if(op == 2){
 tList.display();
 }
 
-}while(op != 3);
+else if(op == 3){
+tList.deleteNode();
+}
+
+else if(op == 4){
+tList.find();
+}
+
+else if(op == 5){
+tList.modify();
+}
+
+}while(op != 6);
 }
 
 // Office
+
 else if(ch == 4){
 
 int op;
 
 do{
-	
+
 cout << "\n----- Office Menu -----\n";
 
 cout << "1 Insert\n";
 cout << "2 Display\n";
-cout << "3 Back\n";
+cout << "3 Delete\n";
+cout << "4 Find\n";
+cout << "5 Modify\n";
+cout << "6 Back\n";
 cout << "Enter Choice: ";
 cin >> op;
 
 if(op == 1){
 oList.insert();
-
 }
 
 else if(op == 2){
 oList.display();
 }
 
-}while(op != 3);
+else if(op == 3){
+oList.deleteNode();
+}
+
+else if(op == 4){
+oList.find();
+}
+
+else if(op == 5){
+oList.modify();
+}
+
+}while(op != 6);
 }
 
 }while(ch != 5);
